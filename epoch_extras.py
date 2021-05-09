@@ -1,6 +1,7 @@
 import time
 
 import psycopg2
+
 FAR_FUTURE_EPOCH = 2**64 - 1 # as defined in spec
 
 connection = psycopg2.connect(user="chain", host="127.0.0.1", database="chain", password="medalla")
@@ -133,6 +134,8 @@ for e, s in enumerate(epoch_summaries):
 
     prior_balances = new_balances
     print_progress(start_time, e, len(epoch_summaries) - 2)
+
+# save results in chaind database
 
 print()
 print("writing to database")
